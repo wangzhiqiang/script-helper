@@ -1,0 +1,36 @@
+{
+    "name": "js脚本助手",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "minimum_chrome_version": "50",
+    "icons": {  
+        "16": "icons/icon_16.png",
+        "19": "icons/icon_19.png",
+        "20": "icons/icon_20.png",
+        "32": "icons/icon_32.png",
+        "38": "icons/icon_38.png",
+        "40": "icons/icon_40.png",
+        "48": "icons/icon_48.png",
+        "64": "icons/icon_64.png",
+        "128": "icons/icon_128.png"
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "browser_action": {
+        "default_icon"  : {
+            "48": "icons/icon_48.png",
+            "64": "icons/icon_64.png",
+            "128": "icons/icon_128.png"
+        },  
+        "default_popup" : "popup.html"
+    },
+    "options_ui": {
+      "open_in_tab": true,
+      "page": "options.html"
+   }
+}
