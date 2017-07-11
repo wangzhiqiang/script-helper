@@ -2,15 +2,54 @@
 <html>
   <head>
     <title>选项</title>
-    <link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
-    <script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.theme.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+   
+
+    <script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
     <script type="text/javascript" src='jquery-ui/jquery-ui.min.js'></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src='js/options.js' ></script>
 
   </head>
-  <body>
-  <p>选项设置</p>
+  <body style="padding:20px">
+  <p>脚本列表</p>
 
-<a href="edit.html" blank="_blank" > 新建数据</a>
+   <a href="edit.html" blank="_blank" > 新建数据</a>
 
+   <table class="table table-hover table-bordered">
+   <thead>
+       <tr>
+           <th  class="col-xs-2"> 脚本名 </th>
+           <th>   脚本内容 </th>
+           <th class="col-xs-2"> 操作 </th>
+        </tr>
+    </thead>
+
+    <tbody>
+       <!--  <tr >
+           <td  class="col-xs-2"> 按时 </td>
+           <td>  sgsggh  </td>
+           <td class="col-xs-2"> 
+                <button href="edit.html?id=xx" class="btn btn-primary " >编辑</button> 
+                <button type="button"  class="btn btn-danger">删除</button>  
+            </td>
+        </tr> -->
+    </tbody>
+
+
+    </table>
+ 
+<div id="dialog-confirm" style="display:none" title="删除脚本">
+  <p>
+  <span class="ui-icon ui-icon-alert" ></span>
+  数据删除后不能再恢复,确定删除?
+  </p>
+</div>
+ 
+
+     
   </body>  
 </html>  
