@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "manifest_version": 2,
     "minimum_chrome_version": "50",
-    "icons": {  
+    "icons": {
         "16": "icons/icon_16.png",
         "19": "icons/icon_19.png",
         "20": "icons/icon_20.png",
@@ -14,10 +14,18 @@
         "64": "icons/icon_64.png",
         "128": "icons/icon_128.png"
     },
+    "content_scripts": [
+        {
+            "matches":["<all_urls>"],
+            "js": ["js/jquery-3.2.1.min.js" ]
+        }
+    ],
     "permissions": [
         "storage",
         "tabs",
         "activeTab",
+        "<all_urls>",
+        "file://*/*",
         "http://*/*",
         "https://*/*"
     ],
@@ -26,7 +34,7 @@
             "48": "icons/icon_48.png",
             "64": "icons/icon_64.png",
             "128": "icons/icon_128.png"
-        },  
+        },
         "default_popup" : "popup.html"
     },
     "options_ui": {

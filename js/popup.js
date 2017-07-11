@@ -4,45 +4,51 @@ function doInCurrentTab(tabCallback) {
         function (tabArray) { tabCallback(tabArray[0]); }
     );
 }
-
 var activeTabId;
-
 doInCurrentTab( function(tab){
- activeTabId = tab.id 
- // console.log(tab);
+ activeTabId = tab.id;
 } );
+
+
 $(function() {
-    $("#btn-submit").click(function(){
-        var text = jQuery("#run-content").val();
-        // console.log(text);
-        saveData("text-a",text);
 
-        // chrome.tabs.executeScript(activeTabId, {"code":text},function(res){
-        //     console.log(res);
-        //     if(undefined!= res &&  res.length >0){
-        //         console.log(res[0])
-        //     }
-        // })
-    });
-});
+     var tmpl =
+        "<li class='list-group-item' >"+
+        "<label  for='_FOR_ID' class='text-left'  > _NAME </label>"+
+        "<input  type='radio'     id='_ID' name='radio' value='_ID_VAL'/>"+
+        "</li>";
 
+      queryAllScript(function(res){
 
-function saveData(key ,val){
-    chrome.storage.sync.set({key: val}, function() {
-          // Notify that we saved.
-          // message('Settings saved');
-          console.log(key+"-"+val+"-saved");
+        res.forEach(function(script){
+
+             var rep = tmpl.replace("_FOR_ID",script.id)
+                          .replace("_ID",script.id)
+                          .replace("_ID_VAL",script.id)
+                          .replace("_NAME",script.name) ;
+            rep = $(rep);
+            $(rep).data("script",script);
+            $("ol#list ").append(rep);
         });
-}
-
-chrome.storage.onChanged.addListener(function(changes, namespace) {
-        for (key in changes) {
-          var storageChange = changes[key];
-          console.log('Storage key "%s" in namespace "%s" changed. ' +
-                      'Old value was "%s", new value is "%s".',
-                      key,
-                      namespace,
-                      storageChange.oldValue,
-                      storageChange.newValue);
-        }
+        $( "#list input" ).checkboxradio({ icon: false });
+        $("#list input").last().click();
       });
+
+
+      $("#run-select").click(function(){
+
+          var p = $("#list input:checked").parent();
+          var script = p.data("script");
+          console.log(script);
+
+
+                chrome.tabs.executeScript(activeTabId, {"code":script.content},function(){
+                  console.log("jq-code");
+                  // console.log(res);
+                  // if(undefined!= res &&  res.length >0){
+                  //     console.log(res[0])
+                  // }
+                });
+          
+      });
+});

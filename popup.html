@@ -1,26 +1,79 @@
-<!doctype html>  
-<html>  
-  <head>  
-    <title>AAA</title>  
-    <style>  
-      body {  
-        padding: 10px
-        min-width: 420px;  
-        overflow-x: hidden;  
-      } 
-      textarea{
-        width: 400px;
-        min-height: 500px;
-        border: 1px #fcc solid;
-      } 
-     
-    </style>  
-    <script type="text/javascript" src='jquery-3.2.1.min.js'></script>
-    <script type="text/javascript" src="popup.js"></script>
+<!doctype html>
+<html>
+  <head>
+    <title>脚本执行列表 </title>
+    <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
+    <script type="text/javascript" src='jquery-ui/jquery-ui.min.js'></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+
+    <style type="text/css">
+       body{
+          padding:20px ;
+          min-width: 500px
+       }
+       #list   input[type=checkbox], input[type=radio]{
+          margin: 0px;
+       }
+       #list  label{
+          border: none;
+          padding: 10px 15px;
+          margin: 0px;
+          width: 100%;
+       }
+       #list .list-group-item{
+          padding: 0px;
+       }
+    </style>
+  </head>
+  <body   >
+
+  <!--列表显示脚本 执行选中的脚本-->
+
+
+      <ol class="list-group" id="list">
+
+       <!--  <li class="list-group-item" >
+        <label  for='id-1' class="text-left"  > alfasdfasdfhalkjsdf </label>
+        <input  type="radio"     id='id-1' name="radio" value="11"/>
+        </li>
+
+        <li class="list-group-item" >
+        <label  for='id-2' class="text-left"  > alfasdfasdfhalkjsdf </label>
+        <input  type="radio"      id='id-2' name="radio" value="11"/>
+        </li>
+
+        <li class="list-group-item" >
+        <label  for='id-3' class="text-left"  > alfasdfasdfhalkjsdf </label>
+        <input  type="radio"      id='id-3' name="radio" value="11"/>
+        </li>
+
+        <li class="list-group-item" >
+        <label  for='id-4' class="text-left"  > alfasdfasdfhalkjsdf </label>
+        <input  type="radio"      id='id-4' name="radio" value="11"/>
+        </li> -->
+      </ol>
+
+
+
+  <div class="well form-inline text-center  " >
     
-  </head>  
-  <body>  
-  <textarea id="run-content" ></textarea>
-  <button id="btn-submit"> 提交  </button>
-  </body>  
-</html>  
+
+    <button type="button" class="btn btn-warning " id="run-select">
+    <spanc class="glyphicon glyphicon-play" aria-hidden="true"></span> 运行选中项</button>
+
+    <button type="button" class="btn btn-default ">
+    <spanc class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 刷新</button>
+
+    <a href="edit.html" target="_blank" class="btn btn-info ">
+    <spanc class="glyphicon glyphicon-edit" aria-hidden="true"></span> 新建</a>
+
+    <a href="options.html" target="_blank" class="btn btn-primary ">
+    <spanc class="glyphicon   glyphicon-cog" aria-hidden="true"></span> 选项</a>
+  </div>
+
+  </body>
+</html>
